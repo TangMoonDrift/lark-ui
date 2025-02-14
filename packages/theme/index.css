@@ -1,0 +1,75 @@
+@import './reset.css';
+
+:root {
+	/* colors */
+	--lark-color-white: #ffffff;
+	--lark-color-black: #000000;
+	--colors: (
+		primary: #409eff,
+		success: #67c23a,
+		warning: #e6a23c,
+		danger: #f56c6c,
+		info: #909399
+	);
+	--lark-bg-color: #ffffff;
+	--lark-bg-color-page: #f2f3f5;
+	--lark-bg-color-overlay: #ffffff;
+	--lark-text-color-primary: #303133;
+	--lark-text-color-regular: #606266;
+	--lark-text-color-secondary: #909399;
+	--lark-text-color-placeholder: #a8abb2;
+	--lark-text-color-disabled: #c0c4cc;
+	--lark-border-color: #dcdfe6;
+	--lark-border-color-light: #e4e7ed;
+	--lark-border-color-lighter: #ebeef5;
+	--lark-border-color-extra-light: #f2f6fc;
+	--lark-border-color-dark: #d4d7de;
+	--lark-border-color-darker: #cdd0d6;
+	--lark-fill-color: #f0f2f5;
+	--lark-fill-color-light: #f5f7fa;
+	--lark-fill-color-lighter: #fafafa;
+	--lark-fill-color-extra-light: #fafcff;
+	--lark-fill-color-dark: #ebedf0;
+	--lark-fill-color-darker: #e6e8eb;
+	--lark-fill-color-blank: #ffffff;
+
+	@each $val, $color in var(--colors) {
+		--lark-color-$(val): $(color);
+		@for $i from 3 to 9 {
+			--lark-color-$(val)-light-$(i): mix(#fff, $(color), 0$ (i));
+		}
+		--lark-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+	}
+
+	/* border */
+	--lark-border-width: 1px;
+	--lark-border-style: solid;
+	--lark-border-color-hover: var(--lark-text-color-disabled);
+	--lark-border: var(--lark-border-width) var(--lark-border-style)
+		var(--lark-border-color);
+	--lark-border-radius-base: 4px;
+	--lark-border-radius-small: 2px;
+	--lark-border-radius-round: 20px;
+	--lark-border-radius-circle: 100%;
+
+	/*font*/
+	--lark-font-size-extra-large: 20px;
+	--lark-font-size-large: 18px;
+	--lark-font-size-medium: 16px;
+	--lark-font-size-base: 14px;
+	--lark-font-size-small: 13px;
+	--lark-font-size-extra-small: 12px;
+	--lark-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
+		'Hiragino Sans GB', 'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial,
+		sans-serif;
+	--lark-font-weight-primary: 500;
+
+	/*disabled*/
+	--lark-disabled-bg-color: var(--lark-fill-color-light);
+	--lark-disabled-text-color: var(--lark-text-color-placeholder);
+	--lark-disabled-border-color: var(--lark-border-color-light);
+
+	/*animation*/
+	--lark-transition-duration: 0.4s;
+	--lark-transition-duration-fast: 0.2s;
+}
