@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { ButtonProps } from './types'
+import { ref } from 'vue'
+import { throttle } from 'lodash-es'
+import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
+import './style.css'
 
 defineOptions({
 	name: 'LarkButton'
 })
 
-withDefaults(defineProps<ButtonProps>(), {
+const props = withDefaults(defineProps<ButtonProps>(), {
 	tag: 'button',
 	type: 'primary',
 	size: 'default',
@@ -16,14 +18,29 @@ withDefaults(defineProps<ButtonProps>(), {
 	icon: '',
 	round: false,
 	circle: false,
-	plain: false
+	plain: false,
+	loadingIcon: '',
+	useThrottle: false,
+	autofocus: false,
+	throttleDuration: 1000,
 })
 
+const emits = defineEmits<ButtonEmits>()
 const slots = defineSlots<{
 	default: () => unknown
 }>()
 
+const handleBtnClick = (event: MouseEvent) => {
+	emits('click', event)
+}
+
+const throttleClick = throttle(handleBtnClick, props.throttleDuration)
+
 const ButtonRef = ref<HTMLButtonElement>()
+
+defineExpose<ButtonInstance>({
+	ref: ButtonRef
+})
 </script>
 
 <template>
@@ -35,8 +52,8 @@ const ButtonRef = ref<HTMLButtonElement>()
 			'is-circle': circle,
 			'is-plain': plain,
 			'is-loading': loading,
-			'is-disabled': disabled,
-		}" :size="size">
+			'is-disabled': disabled
+		}" :size="size" @click="(e: MouseEvent) => { useThrottle ? throttleClick(e) : handleBtnClick(e) }">
 		<slot>{{ slots.default?.() }}</slot>
 	</component>
 </template>

@@ -1,0 +1,208 @@
+.lark-button-group {
+	--lark-button-group-border-color: var(--lark-border-color-lighter);
+}
+.lark-button {
+	--lark-button-font-weight: var(--lark-font-weight-primary);
+	--lark-button-border-color: var(--lark-border-color);
+	--lark-button-bg-color: var(--lark-fill-color-blank);
+	--lark-button-text-color: var(--lark-text-color-regular);
+	--lark-button-disabled-text-color: var(--lark-disabled-text-color);
+	--lark-button-disabled-bg-color: var(--lark-fill-color-blank);
+	--lark-button-disabled-border-color: var(--lark-border-color-light);
+	--lark-button-hover-text-color: var(--lark-color-primary);
+	--lark-button-hover-bg-color: var(--lark-color-primary-light-9);
+	--lark-button-hover-border-color: var(--lark-color-primary-light-7);
+	--lark-button-active-text-color: var(--lark-button-hover-text-color);
+	--lark-button-active-border-color: var(--lark-color-primary);
+	--lark-button-active-bg-color: var(--lark-button-hover-bg-color);
+	--lark-button-outline-color: var(--lark-color-primary-light-5);
+	--lark-button-active-color: var(--lark-text-color-primary);
+}
+
+.lark-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	height: 32px;
+	white-space: nowrap;
+	cursor: pointer;
+	color: var(--lark-button-text-color);
+	text-align: center;
+	box-sizing: border-box;
+	outline: none;
+	transition: 0.1s;
+	font-weight: var(--lark-button-font-weight);
+	user-select: none;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	background-color: var(--lark-button-bg-color);
+	border: var(--lark-border);
+	border-color: var(--lark-button-border-color);
+	padding: 8px 15px;
+	font-size: var(--lark-font-size-base);
+	border-radius: var(--lark-border-radius-base);
+	& + & {
+		margin-left: 12px;
+	}
+	&:hover,
+	&:focus {
+		color: var(--lark-button-hover-text-color);
+		border-color: var(--lark-button-hover-border-color);
+		background-color: var(--lark-button-hover-bg-color);
+		outline: none;
+	}
+	&:active {
+		color: var(--lark-button-active-text-color);
+		border-color: var(--lark-button-active-border-color);
+		background-color: var(--lark-button-active-bg-color);
+		outline: none;
+	}
+	/*plain*/
+	&.is-plain {
+		--lark-button-hover-text-color: var(--lark-color-primary);
+		--lark-button-hover-bg-color: var(--lark-fill-color-blank);
+		--lark-button-hover-border-color: var(--lark-color-primary);
+	}
+	/*round*/
+	&.is-round {
+		border-radius: var(--lark-border-radius-round);
+	}
+	/*circle*/
+	&.is-circle {
+		border-radius: 50%;
+		padding: 8px;
+	}
+	/*disabled*/
+	&.is-loading,
+	&.is-disabled,
+	&.is-disabled:hover,
+	&.is-disabled:focus,
+	&[disabled],
+	&[disabled]:hover,
+	&[disabled]:focus {
+		color: var(--lark-button-disabled-text-color);
+		cursor: not-allowed;
+		background-image: none;
+		background-color: var(--lark-button-disabled-bg-color);
+		border-color: var(--lark-button-disabled-border-color);
+	}
+	[class*='lark-icon'] {
+		width: 1em;
+		height: 1em;
+	}
+}
+@each $val in primary, success, warning, info, danger, text {
+	.lark-button--$(val) {
+		--lark-button-text-color: var(--lark-color-white);
+		--lark-button-bg-color: var(--lark-color-$(val));
+		--lark-button-border-color: var(--lark-color-$(val));
+		--lark-button-outline-color: var(--lark-color-$(val)-light-5);
+		--lark-button-active-color: var(--lark-color-$(val)-dark-2);
+		--lark-button-hover-text-color: var(--lark-color-white);
+		--lark-button-hover-bg-color: var(--lark-color-$(val)-light-3);
+		--lark-button-hover-border-color: var(--lark-color-$(val)-light-3);
+		--lark-button-active-bg-color: var(--lark-color-$(val)-dark-2);
+		--lark-button-active-border-color: var(--lark-color-$(val)-dark-2);
+		--lark-button-disabled-text-color: var(--lark-color-white);
+		--lark-button-disabled-bg-color: var(--lark-color-$(val)-light-5);
+		--lark-button-disabled-border-color: var(--lark-color-$(val)-light-5);
+	}
+	.lark-button--$(val).is-plain {
+		--lark-button-text-color: var(--lark-color-$(val));
+		--lark-button-bg-color: var(--lark-color-$(val)-light-9);
+		--lark-button-border-color: var(--lark-color-$(val)-light-5);
+		--lark-button-hover-text-color: var(--lark-color-white);
+		--lark-button-hover-bg-color: var(--lark-color-$(val));
+		--lark-button-hover-border-color: var(--lark-color-$(val));
+		--lark-button-active-text-color: var(--lark-color-white);
+
+		--lark-button-disabled-text-color: var(--lark-color-$(val)-light-5);
+		--lark-button-disabled-bg-color: var(--lark-color-$(val)-light-9);
+		--lark-button-disabled-border-color: var(--lark-color-$(val)-light-8);
+	}
+	.lark-button--$(val).is-text {
+	}
+}
+
+.lark-button--text {
+	color: #242424 !important;
+	background-color: transparent;
+	border: none;
+}
+
+.lark-button--large {
+	--lark-button-size: 40px;
+	height: var(--lark-button-size);
+	padding: 12px 19px;
+	font-size: var(--lark-font-size-base);
+	border-radius: var(--lark-border-radius-base);
+	/*circle*/
+	&.is-circle {
+		border-radius: 50%;
+		padding: 12px;
+	}
+}
+.lark-button--small {
+	--lark-button-size: 24px;
+	height: var(--lark-button-size);
+	padding: 5px 11px;
+	font-size: 12px;
+	border-radius: calc(var(--lark-border-radius-base) - 1px);
+	/*circle*/
+	&.is-circle {
+		border-radius: 50%;
+		padding: 5px;
+	}
+	[class*='lark-icon'] {
+		width: 12px;
+		height: 12px;
+	}
+}
+
+.lark-button-group {
+	display: inline-block;
+	vertical-align: middle;
+
+	&::after {
+		clear: both;
+	}
+	& > :deep(.lark-button) {
+		float: left;
+		position: relative;
+		margin-left: 0;
+		&:first-child {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-right-color: var(--lark-button-group-border-color);
+		}
+		&:last-child {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			border-left-color: var(--lark-button-group-border-color);
+		}
+		&:not(:first-child):not(:last-child) {
+			border-radius: 0;
+
+			border-left-color: var(--lark-button-group-border-color);
+			border-right-color: var(--lark-button-group-border-color);
+		}
+		&:not(:last-child) {
+			margin-right: -1px;
+		}
+		&:first-child:last-child {
+			border-top-right-radius: var(--lark-border-radius-base);
+			border-bottom-right-radius: var(--lark-border-radius-base);
+			border-top-left-radius: var(--lark-border-radius-base);
+			border-bottom-left-radius: var(--lark-border-radius-base);
+
+			&.is-round {
+				border-radius: var(--lark-border-radius-round);
+			}
+
+			&.is-circle {
+				border-radius: 50%;
+			}
+		}
+	}
+}

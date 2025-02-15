@@ -1,4 +1,4 @@
-import type { Component } from 'vue'
+import type { Component, Ref } from 'vue'
 
 export type ButtonType =
 	| 'primary'
@@ -23,4 +23,16 @@ export interface ButtonProps {
 	round?: boolean
 	circle?: boolean
 	plain?: boolean
+	loadingIcon?: string
+	useThrottle?: boolean
+	autofocus?: boolean
+	throttleDuration?: number
+}
+
+export interface ButtonEmits {
+	(e: 'click', value: MouseEvent): void
+}
+
+export interface ButtonInstance {
+	ref: Ref<HTMLButtonElement | void>
 }
