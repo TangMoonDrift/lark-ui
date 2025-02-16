@@ -10,7 +10,7 @@ export type ButtonType =
 
 export type NativeType = 'button' | 'submit' | 'reset'
 
-export type ButtonSize = 'large' | 'default' | 'small' | 'mini'
+export type ButtonSize = 'large' | 'default' | 'small'
 
 export interface ButtonProps {
 	tag?: string | Component

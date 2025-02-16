@@ -1,0 +1,16 @@
+.lark-icon {
+	--lark-icon-color: inherit;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	fill: currentColor;
+	color: var(--lark-icon-color);
+	font-size: inherit;
+}
+
+@each $val in primary, success, warning, info, danger {
+	.lark-icon--$(val) {
+		--lark-icon-color: var(--lark-color-$(val));
+	}
+}

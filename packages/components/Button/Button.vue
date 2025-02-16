@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
+import LarkIcon from '../Icon/Icon.vue'
 import './style.css'
 
 defineOptions({
@@ -27,7 +28,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 
 const emits = defineEmits<ButtonEmits>()
 const slots = defineSlots<{
-	default: () => unknown
+	default?: () => unknown
+	loading?: () => unknown
 }>()
 
 const handleBtnClick = (event: MouseEvent) => {
@@ -37,6 +39,9 @@ const handleBtnClick = (event: MouseEvent) => {
 const throttleClick = throttle(handleBtnClick, props.throttleDuration)
 
 const ButtonRef = ref<HTMLButtonElement>()
+const iconStyle = computed(() => ({
+	marginRight: slots.default ? '8px' : void 0
+}))
 
 defineExpose<ButtonInstance>({
 	ref: ButtonRef
@@ -53,7 +58,14 @@ defineExpose<ButtonInstance>({
 			'is-plain': plain,
 			'is-loading': loading,
 			'is-disabled': disabled
-		}" :size="size" @click="(e: MouseEvent) => { useThrottle ? throttleClick(e) : handleBtnClick(e) }">
+		}" :autofocus="autofocus" :size="size"
+		@click="(e: MouseEvent) => { useThrottle ? throttleClick(e) : handleBtnClick(e) }">
+		<template v-if="loading">
+			<slot name="loading">
+				<lark-icon class="loading-icon" :style="iconStyle" :icon="loadingIcon ?? 'spinner'" spin size="1x" />
+			</slot>
+		</template>
+		<lark-icon v-if="icon && !loading" :style="iconStyle" :icon="icon" size="1x" />
 		<slot>{{ slots.default?.() }}</slot>
 	</component>
 </template>
