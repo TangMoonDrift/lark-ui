@@ -36,7 +36,10 @@ const handleBtnClick = (event: MouseEvent) => {
 	emits('click', event)
 }
 
-const throttleClick = throttle(handleBtnClick, props.throttleDuration)
+const throttleClick = throttle(handleBtnClick, props.throttleDuration, {
+	leading: true,
+	trailing: false
+})
 
 const ButtonRef = ref<HTMLButtonElement>()
 const iconStyle = computed(() => ({
