@@ -5,8 +5,11 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
+		"build": "run-s build:only move-style",
+		"build:only": "run-p build:es build:umd",
 		"build:es": "vite build --config ./build/vite.es.config.ts",
-		"build:umd": "vite build --config ./build/vite.umd.config.ts"
+		"build:umd": "vite build --config ./build/vite.umd.config.ts",
+		"move-style": "move-file dist/es/index.css dist/index.css"
 	},
 	"dependencies": {
 		"@lark-ui/components": "workspace:*"
