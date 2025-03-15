@@ -25,18 +25,19 @@
 		"postcss-nested": "^6.0.1",
 		"typescript": "~5.7.2",
 		"vite": "^5.1.4",
+		"vite-plugin-dts": "^3.9.1",
 		"vitest": "^1.4.0",
 		"vue-tsc": "^2.2.0"
 	},
 	"dependencies": {
-		"lodash-es": "^4.17.21",
-		"vue": "^3.4.19",
-		"lark-ui": "workspace:*",
-		"@lark-ui/hooks": "workspace:*",
-		"@lark-ui/utils": "workspace:*",
-		"@lark-ui/theme": "workspace:*",
 		"@fortawesome/fontawesome-svg-core": "^6.5.2",
 		"@fortawesome/free-solid-svg-icons": "^6.5.2",
-		"@fortawesome/vue-fontawesome": "^3.0.8"
+		"@fortawesome/vue-fontawesome": "^3.0.8",
+		"@lark-ui/hooks": "workspace:*",
+		"@lark-ui/theme": "workspace:*",
+		"@lark-ui/utils": "workspace:*",
+		"lark-ui": "workspace:*",
+		"lodash-es": "^4.17.21",
+		"vue": "^3.4.19"
 	}
 }

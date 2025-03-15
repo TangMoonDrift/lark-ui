@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { throttle } from 'lodash-es'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
 import LarkIcon from '../Icon/Icon.vue'
 import './style.css'
+import { BUTTON_GROUP_CTX_KEY } from './constants'
 
 defineOptions({
 	name: 'LarkButton'
@@ -11,10 +12,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<ButtonProps>(), {
 	tag: 'button',
-	type: 'primary',
-	size: 'default',
 	nativeType: 'button',
-	disabled: false,
 	loading: false,
 	icon: '',
 	round: false,
@@ -31,7 +29,10 @@ const slots = defineSlots<{
 	default?: () => unknown
 	loading?: () => unknown
 }>()
-
+const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0)
+const size = computed(() => ctx?.size ?? props.size ?? 'default')
+const type = computed(() => ctx?.type ?? props.type ?? 'primary')
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
 const handleBtnClick = (event: MouseEvent) => {
 	emits('click', event)
 }
