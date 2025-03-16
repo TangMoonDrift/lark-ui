@@ -1,0 +1,58 @@
+.lark-collapse {
+	--lark-collapse-border-color: var(--lark-border-color-light);
+	--lark-collapse-header-height: 48px;
+	--lark-collapse-header-bg-color: var(--lark-fill-color-blank);
+	--lark-collapse-header-text-color: var(--lark-text-color-primary);
+	--lark-collapse-header-font-size: 13px;
+	--lark-collapse-content-bg-color: var(--lark-fill-color-blank);
+	--lark-collapse-content-font-size: 13px;
+	--lark-collapse-content-text-color: var(--lark-text-color-primary);
+	--lark-collapse-disabled-text-color: var(--lark-disabled-text-color);
+	--lark-collapse-disabled-border-color: var(--lark-border-color-lighter);
+	border-top: 1px solid var(--lark-collapse-border-color);
+	border-bottom: 1px solid var(--lark-collapse-border-color);
+}
+
+.lark-collapse-item__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--lark-collapse-header-height);
+	line-height: var(--lark-collapse-header-height);
+	background-color: var(--lark-collapse-header-bg-color);
+	color: var(--lark-collapse-header-text-color);
+	cursor: pointer;
+	font-size: var(--lark-collapse-header-font-size);
+	font-weight: 500;
+	transition: border-bottom-color var(--lark-transition-duration);
+	outline: none;
+	border-bottom: 1px solid var(--lark-collapse-border-color);
+	&.is-disabled {
+		color: var(--lark-collapse-disabled-text-color);
+		cursor: not-allowed;
+		background-image: none;
+	}
+	&.is-active {
+		border-bottom-color: transparent;
+		.header-angle {
+			transform: rotate(90deg);
+		}
+	}
+	.header-angle {
+		transition: transform var(--lark-transition-duration);
+	}
+}
+.lark-collapse-item__content {
+	will-change: height;
+	background-color: var(--lark-collapse-content-bg-color);
+	overflow: hidden;
+	box-sizing: border-box;
+	font-size: var(--lark-collapse-content-font-size);
+	color: var(--lark-collapse-content-text-color);
+	border-bottom: 1px solid var(--lark-collapse-border-color);
+	padding-bottom: 25px;
+}
+.slide-enter-active,
+.slide-leave-active {
+	transition: height var(--lark-transition-duration) ease-in-out;
+}

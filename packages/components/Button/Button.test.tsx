@@ -253,7 +253,7 @@ describe('ButtonGroup.vue', () => {
 			</ButtonGroup>
 		))
 
-		expect(wrapper.classes()).toContain('er-button-group')
+		expect(wrapper.classes()).toContain('lark-button-group')
 	})
 
 	test('button group size', () => {
@@ -267,7 +267,7 @@ describe('ButtonGroup.vue', () => {
 			))
 
 			const buttonWrapper = wrapper.findComponent(Button)
-			expect(buttonWrapper.classes()).toContain(`er-button--${size}`)
+			expect(buttonWrapper.classes()).toContain(`lark-button--${size}`)
 		})
 	})
 
@@ -282,7 +282,7 @@ describe('ButtonGroup.vue', () => {
 			))
 
 			const buttonWrapper = wrapper.findComponent(Button)
-			expect(buttonWrapper.classes()).toContain(`er-button--${type}`)
+			expect(buttonWrapper.classes()).toContain(`lark-button--${type}`)
 		})
 	})
 

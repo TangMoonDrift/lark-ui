@@ -43,7 +43,7 @@ describe('Collapse.vue', () => {
 		)
 
 		headers = wrapper.findAll('.lark-collapse-item__header')
-		contents = wrapper.findAll('.lark-collapse-item__wapper')
+		contents = wrapper.findAll('.lark-collapse-item__wrapper')
 
 		firstHeader = headers[0]
 		secondHeader = headers[1]
