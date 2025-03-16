@@ -45,6 +45,12 @@ export default defineConfig({
 					if (chunkInfo.name === 'style.css') {
 						return 'index.css'
 					}
+					if (
+						chunkInfo.type === 'asset' &&
+						/\.(css)$/i.test(chunkInfo.name as string)
+					) {
+						return 'theme/[name].[ext]'
+					}
 					return chunkInfo.name as string
 				},
 				manualChunks(id) {
@@ -54,7 +60,10 @@ export default defineConfig({
 					if (id.includes('packages/hooks')) {
 						return 'hooks'
 					}
-					if (id.includes('packages/utils')) {
+					if (
+						id.includes('packages/utils') ||
+						includes(id, 'plugin-vue:export-helper')
+					) {
 						return 'utils'
 					}
 
