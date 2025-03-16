@@ -2,6 +2,7 @@
 import type { CollapseItemProps } from './types'
 import { inject, computed } from 'vue'
 import { COLLAPSE_CTX_KEY } from './constants'
+import transitionEvents from './transitionEvents'
 
 const ctx = inject(COLLAPSE_CTX_KEY, void 0)
 const isActive = computed(() => ctx?.activeNames.value.includes(props.name))
@@ -32,11 +33,13 @@ defineOptions({
 			</span>
 			<lark-icon icon="angle-right" class="header-angle" />
 		</div>
-		<div class="lark-collapse-item__wrapper" v-show="isActive">
-			<div class="lark-collapse-item__content" :id="`item-content-${name}`">
-				<slot></slot>
+		<transition name="slide" v-on="transitionEvents">
+			<div class="lark-collapse-item__wrapper" v-show="isActive">
+				<div class="lark-collapse-item__content" :id="`item-content-${name}`">
+					<slot></slot>
+				</div>
 			</div>
-		</div>
+		</transition>
 	</div>
 </template>
 

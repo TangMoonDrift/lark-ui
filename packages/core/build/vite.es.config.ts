@@ -23,6 +23,8 @@ export default defineConfig({
 	],
 	build: {
 		outDir: 'dist/es',
+		minify: false,
+		cssCodeSplit: true,
 		lib: {
 			entry: resolve(__dirname, '../index.ts'),
 			name: 'LarkUI',

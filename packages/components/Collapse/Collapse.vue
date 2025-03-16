@@ -1,19 +1,23 @@
 <script lang="ts" setup>
 import type { CollapseProps, CollapseEmits, CollapseItemName } from './types'
-import { watch, provide, ref } from 'vue'
+import { watch, provide, ref, watchEffect } from 'vue'
 import { COLLAPSE_CTX_KEY } from './constants'
+import { debugWarn } from '@lark-ui/utils';
 
+const COMP_NAME = 'LarkCollapse' as const
 const props = defineProps<CollapseProps>()
 const emit = defineEmits<CollapseEmits>()
 const activeNames = ref<CollapseItemName[]>(props.modelValue)
 
 defineOptions({
-	name: 'LarkCollapse',
+	name: COMP_NAME,
 })
 
-if (props.accordion && activeNames.value.length > 1) {
-	console.warn('[LarkUI-Vue][Collapse]: accordion mode only allows one active item at a time.')
-}
+watchEffect(() => {
+	if (props.accordion && activeNames.value.length > 1) {
+		debugWarn(COMP_NAME, 'accordion mode only allows one active item at a time.')
+	}
+})
 
 const updatActiveNames = (newNames: CollapseItemName[]) => {
 	activeNames.value = newNames
