@@ -1,4 +1,5 @@
 export default function () {
+	console.log('LarkUI]: LOGO', PROD, DEV)
 	if (PROD) {
 		const logo = `
  ___           ________      ________      ___  __            ___  ___      ___     

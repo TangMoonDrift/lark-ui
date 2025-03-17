@@ -7,8 +7,9 @@
 		"dev": "pnpm --filter @lark-ui/play dev",
 		"docs:dev": "pnpm --filter @lark-ui/docs docs:dev",
 		"docs:build": "pnpm --filter @lark-ui/docs docs:build",
-		"test": "pnpm --filter @lark-ui/components test",
-		"build": "cross-env NODE_ENV=production pnpm --filter lark-ui build"
+		"test": "cross-env NODE_ENV=test pnpm --filter @lark-ui/components test",
+		"build": "cross-env NODE_ENV=production pnpm --filter lark-ui-mead build",
+		"build:dev": "cross-env NODE_ENV=development pnpm --filter lark-ui-mead build"
 	},
 	"keywords": [],
 	"author": "",
@@ -30,7 +31,7 @@
 		"release-it": "^18.1.2",
 		"shelljs": "^0.9.1",
 		"typescript": "5.8.2",
-		"vite": "6.2.2",
+		"vite": "^5",
 		"vite-plugin-dts": "^3.9.1",
 		"vitest": "^1.4.0",
 		"vue-tsc": "^2.2.0"
