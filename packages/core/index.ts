@@ -6,5 +6,5 @@ import '@lark-ui/theme/index.css'
 
 library.add(fas)
 
-export * from '../components'
+export * from '@lark-ui/components'
 export default makeInstaller(components)
