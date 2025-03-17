@@ -2,12 +2,16 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import dts from 'vite-plugin-dts'
-import { readdir, readdirSync } from 'node:fs'
+import { readdirSync } from 'node:fs'
 import { defer, delay, filter, includes, map } from 'lodash-es'
 import shell from 'shelljs'
 import hooks from '../plugins/hooks'
+import terser from '@rollup/plugin-terser'
 
 const RETRY_MOVE_STYLES_DELAY = 1000 as const
+const isProd = process.env.NODE_ENV === 'production'
+const isDev = process.env.NODE_ENV === 'development'
+const isTest = process.env.NODE_ENV === 'test'
 const getDirectoriesSync = (basePath: string) => {
 	const entries = readdirSync(basePath, { withFileTypes: true })
 	return map(
@@ -36,6 +40,33 @@ export default defineConfig({
 		hooks({
 			rmFiles: ['./dist/es', './dist/theme', './dist/types'],
 			afterBuild: moveStyles
+		}),
+		terser({
+			compress: {
+				sequences: isProd,
+				arguments: isProd,
+				drop_console: isProd && ['log'],
+				drop_debugger: isProd,
+				passes: isProd ? 4 : 1,
+				global_defs: {
+					__PROD__: JSON.stringify(isProd),
+					__DEV__: JSON.stringify(isDev),
+					__TEST__: JSON.stringify(isTest)
+				}
+			},
+			format: {
+				semicolons: false,
+				shorthand: isProd,
+				braces: !isProd,
+				beautify: !isProd,
+				comments: !isProd
+			},
+			mangle: {
+				toplevel: isProd,
+				eval: isProd,
+				keep_classnames: isDev,
+				keep_fnames: isDev
+			}
 		})
 	],
 	build: {
