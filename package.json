@@ -8,8 +8,8 @@
 		"docs:dev": "pnpm --filter @lark-ui/docs docs:dev",
 		"docs:build": "pnpm --filter @lark-ui/docs docs:build",
 		"test": "cross-env NODE_ENV=test pnpm --filter @lark-ui/components test",
-		"build": "cross-env NODE_ENV=production pnpm --filter lark-ui-mead build",
-		"build:dev": "cross-env NODE_ENV=development pnpm --filter lark-ui-mead build"
+		"build": "cross-env NODE_ENV=production pnpm --filter @arcade-mead/lark-ui build",
+		"build:dev": "cross-env NODE_ENV=development pnpm --filter @arcade-mead/lark-ui build"
 	},
 	"keywords": [],
 	"author": "",
