@@ -90,7 +90,7 @@ describe('Button', () => {
 		expect(icon.exists()).toBeTruthy()
 		expect(icon.attributes('icon')).toBe('spinner')
 		await wrapper.trigger('click')
-		expect(wrapper.emitted().click).toBeUndefined()
+		expect(wrapper.emitted('click')).toBeUndefined()
 	})
 
 	test('loading button', () => {
@@ -234,11 +234,11 @@ describe('Button', () => {
 				stubs: ['LarkIcon']
 			}
 		})
-		const iconElement = wrapper.findComponent(Icon)
+		const icon = wrapper.findComponent(Icon)
 
 		expect(wrapper.find('.loading-icon').exists()).toBe(true)
-		expect(iconElement.exists()).toBeTruthy()
-		expect(iconElement.attributes('icon')).toBe('spinner')
+		expect(icon.exists()).toBeTruthy()
+		expect(icon.attributes('icon')).toBe('spinner')
 		await wrapper.trigger('click')
 		expect(wrapper.emitted('click')).toBeUndefined()
 	})

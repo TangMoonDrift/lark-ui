@@ -19,7 +19,7 @@ watchEffect(() => {
 	}
 })
 
-const updatActiveNames = (newNames: CollapseItemName[]) => {
+const updateActiveNames = (newNames: CollapseItemName[]) => {
 	activeNames.value = newNames
 	emit('update:modelValue', newNames)
 	emit('change', newNames)
@@ -31,7 +31,7 @@ const handleItemClick = (name: CollapseItemName) => {
 		: activeNames.value.includes(name)
 			? activeNames.value.filter(n => n !== name)
 			: [...activeNames.value, name]
-	updatActiveNames(_)
+	updateActiveNames(_)
 }
 
 provide(COLLAPSE_CTX_KEY, {
@@ -40,7 +40,7 @@ provide(COLLAPSE_CTX_KEY, {
 })
 
 watch(() => props.modelValue, (newNames) => {
-	updatActiveNames(newNames)
+	updateActiveNames(newNames)
 })
 
 </script>

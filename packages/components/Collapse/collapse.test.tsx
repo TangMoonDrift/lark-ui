@@ -166,7 +166,7 @@ describe('Collapse.vue', () => {
 			`
         [
           [
-            [LarkUIError: [LarkCollapse] accordion mode should only have one active item],
+            [LarkUIError: [LarkCollapse] accordion mode only allows one active item at a time.],
           ],
         ]
       `

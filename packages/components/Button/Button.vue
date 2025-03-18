@@ -13,22 +13,12 @@ defineOptions({
 const props = withDefaults(defineProps<ButtonProps>(), {
 	tag: 'button',
 	nativeType: 'button',
-	loading: false,
-	icon: '',
-	round: false,
-	circle: false,
-	plain: false,
-	loadingIcon: '',
 	useThrottle: false,
-	autofocus: false,
 	throttleDuration: 1000,
 })
 
 const emits = defineEmits<ButtonEmits>()
-const slots = defineSlots<{
-	default?: () => unknown
-	loading?: () => unknown
-}>()
+const slots = defineSlots()
 const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0)
 const size = computed(() => ctx?.size ?? props.size ?? 'default')
 const type = computed(() => ctx?.type ?? props.type ?? 'primary')
@@ -48,13 +38,16 @@ const iconStyle = computed(() => ({
 }))
 
 defineExpose<ButtonInstance>({
-	ref: ButtonRef
+	ref: ButtonRef,
+	disabled,
+	size,
+	type
 })
 </script>
 
 <template>
-	<component :is="tag" ref="ButtonRef" :type="tag === 'button' ? nativeType : void 0" :disabled="disabled"
-		class="lark-button" :class="{
+	<component :is="tag" ref="ButtonRef" :type="tag === 'button' ? nativeType : void 0"
+		:disabled="disabled || loading ? true : void 0" class="lark-button" :class="{
 			[`lark-button--${type}`]: type,
 			[`lark-button--${size}`]: size,
 			'is-round': round,
