@@ -1,6 +1,6 @@
 {
 	"name": "@arcade-mead/lark-ui",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "Components library for vue3 written with typescript",
 	"files": [
 		"dist/",
