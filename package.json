@@ -45,6 +45,7 @@
 		"@lark-ui/utils": "workspace:*",
 		"lark-ui": "workspace:*",
 		"lodash-es": "^4.17.21",
-		"vue": "^3.4.19"
+		"vue": "^3.4.19",
+		"@vitepress-preview/component": "workspace:*"
 	}
 }
