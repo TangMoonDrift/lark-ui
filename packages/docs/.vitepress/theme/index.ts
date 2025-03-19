@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { type App } from 'vue'
-import LarkUI, { zhCn } from 'lark-ui'
+import LarkUI, { zhCn } from '@arcade-mead/lark-ui'
 import { ElementPlusContainer } from '@vitepress-preview/component'
 
 import '@vitepress-preview/component/style.css'

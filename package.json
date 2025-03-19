@@ -43,7 +43,7 @@
 		"@lark-ui/hooks": "workspace:*",
 		"@lark-ui/theme": "workspace:*",
 		"@lark-ui/utils": "workspace:*",
-		"lark-ui": "workspace:*",
+		"@arcade-mead/lark-ui": "workspace:*",
 		"lodash-es": "^4.17.21",
 		"vue": "^3.4.19",
 		"@vitepress-preview/component": "workspace:*"
