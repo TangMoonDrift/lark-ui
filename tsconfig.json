@@ -28,6 +28,6 @@
 		"packages/**/*.tsx",
 		"packages/**/*.vue",
 		"packages/play/src/stories/*.stories.ts",
-		"packages/components/vitest.config.ts"
+		"vitest.config.ts"
 	]
 }

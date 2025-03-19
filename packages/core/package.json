@@ -1,59 +1,59 @@
 {
-  "name": "@arcade-mead/lark-ui",
-  "version": "1.0.1",
-  "description": "Components library for vue3 written with typescript",
-  "files": [
-    "dist/",
-    "package.json"
-  ],
-  "main": "dist/umd/index.umd.cjs",
-  "module": "dist/es/index.js",
-  "types": "dist/types/core/index.d.ts",
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/types/core/index.d.ts",
-      "import": "./dist/es/index.js",
-      "require": "./dist/umd/index.umd.cjs"
-    },
-    "./dist/": {
-      "import": "./dist/",
-      "require": "./dist/"
-    }
-  },
-  "sideEffects": [
-    "./dist/index.css"
-  ],
-  "scripts": {
-    "build": "run-s build:only",
-    "build:only": "run-p build:es build:umd",
-    "build:es": "vite build --config ./build/vite.es.config.ts",
-    "build:umd": "vite build --config ./build/vite.umd.config.ts",
-    "release": "release-it"
-  },
-  "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
-    "rollup-plugin-visualizer": "^5.12.0",
-    "terser": "^5.31.0",
-    "vite-plugin-compression": "^0.5.1"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/vue-fontawesome": "^3.0.6",
-    "@popperjs/core": "^2.11.8",
-    "async-validator": "^4.2.5"
-  },
-  "peerDependencies": {
-    "vue": "^3.4.27"
-  },
-  "keywords": [],
-  "author": "Arcade Mead",
-  "license": "ISC",
-  "release-it": {
-    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
-    "github": {
-      "release": true
-    }
-  }
+	"name": "@arcade-mead/lark-ui",
+	"version": "1.0.1",
+	"description": "Components library for vue3 written with typescript",
+	"files": [
+		"dist/",
+		"package.json"
+	],
+	"main": "dist/umd/index.umd.cjs",
+	"module": "dist/es/index.js",
+	"types": "dist/types/core/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/types/core/index.d.ts",
+			"import": "./dist/es/index.js",
+			"require": "./dist/umd/index.umd.cjs"
+		},
+		"./dist/": {
+			"import": "./dist/",
+			"require": "./dist/"
+		}
+	},
+	"sideEffects": [
+		"./dist/index.css"
+	],
+	"scripts": {
+		"build": "run-s build:only",
+		"build:only": "run-p build:es build:umd",
+		"build:es": "vite build --config ./build/vite.es.config.ts",
+		"build:umd": "vite build --config ./build/vite.umd.config.ts",
+		"release": "release-it"
+	},
+	"devDependencies": {
+		"@rollup/plugin-terser": "^0.4.4",
+		"rollup-plugin-visualizer": "^5.12.0",
+		"terser": "^5.31.0",
+		"vite-plugin-compression": "^0.5.1"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.5.1",
+		"@fortawesome/free-solid-svg-icons": "^6.5.1",
+		"@fortawesome/vue-fontawesome": "^3.0.6",
+		"@popperjs/core": "^2.11.8",
+		"async-validator": "^4.2.5"
+	},
+	"peerDependencies": {
+		"vue": "^3.4.27"
+	},
+	"keywords": [],
+	"author": "Arcade Mead",
+	"license": "ISC",
+	"release-it": {
+		"$schema": "https://unpkg.com/release-it/schema/release-it.json",
+		"github": {
+			"release": true
+		}
+	}
 }
