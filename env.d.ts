@@ -1,3 +1,3 @@
-declare const PROD: boolean
-declare const DEV: boolean
-declare const TEST: boolean
+declare const __PROD__: boolean
+declare const __DEV__: boolean
+declare const __TEST__: boolean
