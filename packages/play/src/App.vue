@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { LarkTooltip } from '@arcade-mead/lark-ui'
 </script>
 
 <template>
@@ -9,8 +10,7 @@
 
 	<main class="lark-main">
 		<lark-tooltip placement="top">
-			<template #content> multiple lines<br />second line </template>
-			
+			<template #content>这周有什么安排？</template>
 			<lark-button round type="primary" size="large">Hoy es sabado!!!</lark-button>
 		</lark-tooltip>
 	</main>
