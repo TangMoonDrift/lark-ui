@@ -7,7 +7,7 @@ import { defer, delay } from 'lodash-es'
 import shell from 'shelljs'
 import terser from '@rollup/plugin-terser'
 import type { PluginOption } from 'vite'
-import hooks from '../plugins/hooks'
+import { hooks } from '@lark-ui/vite-plugins'
 
 const RETRY_MOVE_STYLES_DELAY = 1000 as const
 const isProd = process.env.NODE_ENV === 'production'

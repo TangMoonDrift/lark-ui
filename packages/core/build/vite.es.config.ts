@@ -5,7 +5,7 @@ import dts from 'vite-plugin-dts'
 import { readdirSync } from 'node:fs'
 import { defer, delay, filter, includes, map } from 'lodash-es'
 import shell from 'shelljs'
-import hooks from '../plugins/hooks'
+import { hooks } from '@lark-ui/vite-plugins'
 import terser from '@rollup/plugin-terser'
 
 const RETRY_MOVE_STYLES_DELAY = 1000 as const

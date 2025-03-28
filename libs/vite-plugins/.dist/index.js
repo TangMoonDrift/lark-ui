@@ -1,4 +1,4 @@
-import { each, isFunction } from "lodash-es";
+import { isFunction, each } from "lodash-es";
 import shell from "shelljs";
 function hooksPlugin({
   rmFiles = [],
@@ -17,5 +17,5 @@ function hooksPlugin({
   };
 }
 export {
-  hooksPlugin
+  hooksPlugin as hooks
 };

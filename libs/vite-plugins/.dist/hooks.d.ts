@@ -1,4 +1,4 @@
-export default function hooksPlugin({ rmFiles, afterBuild, beforeBuild, }: {
+export default function hooksPlugin({ rmFiles, afterBuild, beforeBuild }: {
     beforeBuild?: Function;
     afterBuild?: Function;
     rmFiles?: string[];

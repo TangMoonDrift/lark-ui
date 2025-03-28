@@ -1,3 +1,3 @@
-import { default as hooks } from './hooks'
+import { default as hooks } from './hooks';
 
-export { hooks }
+export { hooks };

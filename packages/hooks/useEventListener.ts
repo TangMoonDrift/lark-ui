@@ -1,11 +1,5 @@
-import {
-	onMounted,
-	onBeforeUnmount,
-	watch,
-	isRef,
-	unref,
-	type MaybeRef
-} from 'vue'
+import { onMounted, onBeforeUnmount, watch, isRef, unref } from 'vue'
+import type { MaybeRef } from 'vue'
 
 export default function useEventListener(
 	target: MaybeRef<EventTarget | HTMLElement | void>,
