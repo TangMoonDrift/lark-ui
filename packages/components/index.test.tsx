@@ -10,7 +10,7 @@ import {
 	// LarkDropdownItem,
 	// LarkForm,
 	// LarkFormItem,
-	LarkIcon
+	LarkIcon,
 	// LarkInput,
 	// LarkLoading,
 	// LarkLoadingDirective,
@@ -22,7 +22,7 @@ import {
 	// LarkPopconfirm,
 	// LarkSelect,
 	// LarkSwitch,
-	// LarkTooltip,
+	LarkTooltip
 	// LarkUpload
 } from './index'
 import { map, get } from 'lodash-es'
@@ -35,7 +35,7 @@ const components = [
 	LarkIcon,
 	// LarkDropdown,
 	// LarkDropdownItem,
-	// LarkTooltip,
+	LarkTooltip,
 	// LarkMessage,
 	// LarkInput,
 	// LarkSwitch,
