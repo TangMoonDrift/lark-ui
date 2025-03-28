@@ -177,7 +177,14 @@ importers:
         specifier: 1.0.0-rc.44
         version: 1.0.0-rc.44(@algolia/client-search@5.20.2)(@types/node@22.13.4)(async-validator@4.2.5)(postcss@8.5.3)(sass@1.86.0)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.2)
 
-  packages/hooks: {}
+  packages/hooks:
+    dependencies:
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
+      vue:
+        specifier: ^3.4.19
+        version: 3.5.13(typescript@5.8.2)
 
   packages/play:
     devDependencies:
