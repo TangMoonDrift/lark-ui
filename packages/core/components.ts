@@ -1,6 +1,8 @@
 import {
 	LarkButton,
+	LarkButtonGroup,
 	LarkIcon,
+	LarkCollapseItem,
 	LarkCollapse,
 	LarkTooltip,
 	LarkPopconfirm
@@ -9,7 +11,9 @@ import type { Plugin } from 'vue'
 
 export default [
 	LarkButton,
+	LarkButtonGroup,
 	LarkIcon,
+	LarkCollapseItem,
 	LarkCollapse,
 	LarkTooltip,
 	LarkPopconfirm
