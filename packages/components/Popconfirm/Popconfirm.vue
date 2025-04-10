@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import LarkButton from "../Button/Button.vue";
+import LarkIcon from "../Icon/Icon.vue";
 import LarkTooltip from '../Tooltip/Tooltip.vue';
 import { addUnit } from '@lark-ui/utils';
 import { useLocale } from "../../hooks";
@@ -42,18 +44,19 @@ const cancel = (e: MouseEvent) => {
 <template>
 	<lark-tooltip ref="tooltipRef" trigger="click" :hide-timeout="hideAfter">
 		<template #content>
-			<div class="er-popconfirm" :style="style">
-				<div class="er-popconfirm__main">
-					<er-icon v-if="!hideIcon && icon" :icon="icon" :color="iconColor" />
+			<div class="lark-popconfirm" :style="style">
+				<div class="lark-popconfirm__main">
+					<lark-icon v-if="!hideIcon && icon" :icon="icon" :color="iconColor" />
 					{{ title }}
 				</div>
-				<div class="er-popconfirm__action">
-					<er-button size="small" class="er-popconfirm__cancel" :type="cancelButtonType" @click="cancel">
+				<div class="lark-popconfirm__action">
+					<lark-button size="small" class="lark-popconfirm__cancel" :type="cancelButtonType" @click="cancel">
 						{{ cancelButtonText || t("popconfirm.cancelButtonText") }}
-					</er-button>
-					<er-button size="small" class="er-popconfirm__confirm" :type="confirmButtonType" @click="confirm">
+					</lark-button>
+					<lark-button size="small" class="lark-popconfirm__confirm" :type="confirmButtonType"
+						@click="confirm">
 						{{ confirmButtonText || t("popconfirm.confirmButtonText") }}
-					</er-button>
+					</lark-button>
 				</div>
 			</div>
 		</template>
