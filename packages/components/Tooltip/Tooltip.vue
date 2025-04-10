@@ -2,15 +2,13 @@
 import { createPopper, type Instance } from "@popperjs/core";
 import { ref, watch, watchEffect, onUnmounted, computed, type Ref } from "vue";
 import { bind, debounce, type DebouncedFunc } from "lodash-es";
-import { useClickOutside } from "@lark-ui/hooks";
-
+import { useClickOutside } from "../../hooks";
+import useEvenstToTiggerNode from "./useEventsToTriggerNode";
 import type { TooltipProps, TooltipEmits, TooltipInstance } from "./types";
 import type { ButtonInstance } from "../Button";
 
-import useEvenstToTiggerNode from "./useEventsToTriggerNode";
-
 defineOptions({
-	name: "ErTooltip",
+	name: "LarkTooltip",
 });
 
 interface _TooltipProps extends TooltipProps {

@@ -35,7 +35,8 @@
 		"vite": "^5",
 		"vite-plugin-dts": "^3.9.1",
 		"vitest": "^1.4.0",
-		"vue-tsc": "^2.2.0"
+		"vue-tsc": "^2.2.0",
+		"vue3-i18n": "^1.1.5"
 	},
 	"dependencies": {
 		"@arcade-mead/lark-ui": "workspace:*",
@@ -46,6 +47,7 @@
 		"@lark-ui/theme": "workspace:*",
 		"@lark-ui/utils": "workspace:*",
 		"@lark-ui/vite-plugins": "workspace:*",
+		"@lark-ui/locale": "workspace:*",
 		"@vitepress-preview/component": "workspace:*",
 		"lodash-es": "^4.17.21",
 		"vue": "^3.4.19"
