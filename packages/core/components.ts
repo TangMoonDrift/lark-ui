@@ -2,8 +2,15 @@ import {
 	LarkButton,
 	LarkIcon,
 	LarkCollapse,
-	LarkTooltip
+	LarkTooltip,
+	LarkPopconfirm
 } from '@lark-ui/components'
 import type { Plugin } from 'vue'
 
-export default [LarkButton, LarkIcon, LarkCollapse, LarkTooltip] as Plugin[]
+export default [
+	LarkButton,
+	LarkIcon,
+	LarkCollapse,
+	LarkTooltip,
+	LarkPopconfirm
+] as Plugin[]
